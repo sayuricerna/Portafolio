@@ -1,0 +1,43 @@
+/* src/index.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 💡 TUS VARIABLES CSS EN :ROOT */
+:root {
+    --text-color:#e5e3ee ;
+    --background:#000000;
+    --primary-color:#9286e1;
+    --secondary-color:#0e006c;
+    --accent-color:#452afa;
+    --title-size:2.5rem;   /* h1 */
+    --subtitle-size:1.5rem; /* h2 */
+    --paragraph-size:1.3rem; /* p */
+    --caption-size:.95rem; /* p .caption */
+}
+body{
+    background-color: var(--background);
+}
+h1{
+    font-size: var(--title-size);
+}
+h2{
+    font-size: var(--subtitle-size);
+}
+p{
+    font-size: var(--paragraph-size);
+}
+p.caption{
+    font-size: var(--caption-size);
+}
+h1, h2, h3, h4, h5, h6, p, span, a, li, div{
+    color: var(--text-color);
+}
+.blob {
+    max-width: 100vh;
+    max-height: 90vh;
+    clip-path: polygon(78% 0, 97% 19%, 100% 80%, 63% 120%, 18% 100%, 0% 70%, 18% 26%);
+}
+
+
