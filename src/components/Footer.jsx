@@ -5,7 +5,7 @@ import { FaLinkedinIn, FaGithub, FaYoutube, FaEnvelope, FaPhoneAlt } from 'react
 
 function Footer() {
   return (
-    <footer className=" text-text p-8 mt-auto border-t border-primary/50">
+    <footer className=" text-text p-8 mt-auto border-t border-gray-600">
       <div className="container mx-auto flex flex-col items-center space-y-4">
         <div className="text-center mb-2">
           <h2 className="text-title font-bold text-text">Sayuri Cerna</h2>

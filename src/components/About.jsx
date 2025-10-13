@@ -30,17 +30,15 @@ const SKILLS_DATA = {
 
 function About (){
     return (
-        <section id="about" className="py-20 px-40 bg-background">
-            <div className="container mx-auto">
+        <section id="about" className="py-20 px-6 bg-background">
+            <div className="container mx-auto max-w-6xl">
                 <h2 className="text-4xl md:text-5xl font-extrabold text-title text-center mb-12 animate-fade-in-up">
-                    Sobre <span className="bg-gradient-to-r 
-              from-primary 
-              to-accent 
+                    Sobre <span className="bg-primary
+              
               text-transparent 
               bg-clip-text 
-              transition 
-              duration-300 
-              hover:scale-105 
+             
+              
               ">mí</span>
                 </h2>
 
@@ -76,7 +74,7 @@ function About (){
                     </div>
                 </div>
 
-                <div className="w-full pt-8 px-60 border-secondary/50">
+                <div className="w-full pt-8">
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center mb-10">
                         
