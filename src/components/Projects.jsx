@@ -1,7 +1,6 @@
 import React from "react";
 import { FaExternalLinkAlt, FaInfoCircle, FaCode } from 'react-icons/fa';
 
-// Data de ejemplo (mover a un archivo de data si la lista crece mucho)
 const FEATURED_PROJECTS = [
     {
         id: 1,
@@ -47,10 +46,9 @@ function Projects() {
                 ))}
             </div>
 
-            {/* Botón para ver más proyectos */}
             <div className="text-center mt-16">
                 <a 
-                    href="/projects" // Ruta a tu ProjectsPage.jsx
+                    href="/projects" 
                     className="inline-flex items-center px-8 py-3 rounded-lg font-semibold transition duration-300 shadow-xl 
                                 bg-accent text-background border-2 border-accent hover:bg-transparent hover:text-accent"
                 >
@@ -63,7 +61,6 @@ function Projects() {
   );
 }
 
-// --- Componente Auxiliar: Tarjeta de Proyecto ---
 const ProjectCard = ({ project }) => {
     return (
         <div className="flex flex-col lg:flex-row rounded-xl shadow-2xl overflow-hidden 
