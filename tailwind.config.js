@@ -1,10 +1,8 @@
 
 
-// tailwind.config.js
 
 /** @type {import('tailwindcss').Config} */
 export default {
-  // 1. Indicar a Tailwind dónde buscar las clases (archivos .jsx/.tsx)
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -27,7 +25,7 @@ export default {
       keyframes: {
   float: {
     '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
-    '50%': { transform: 'translateY(-15px) rotate(5deg)' }, // La animación de movimiento
+    '50%': { transform: 'translateY(-15px) rotate(5deg)' },
   },
   
   fadeInUp: {

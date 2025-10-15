@@ -1,8 +1,5 @@
-// src/components/Footer.jsx
-
 import React from 'react';
 import { FaLinkedinIn, FaGithub, FaYoutube, FaEnvelope, FaPhoneAlt } from 'react-icons/fa';
-
 function Footer() {
   return (
     <footer className=" text-text p-8 mt-auto border-t border-gray-600">
@@ -46,15 +43,12 @@ function Footer() {
             <FaYoutube />
           </a>
         </div>
-
         <p className="text-xs font-medium text-gray-500 uppercase tracking-widest pt-2">
           Quito, Ecuador
         </p>
-
         <p className="text-caption text-gray-600 pt-4 border-t border-gray-700 w-full text-center">
           Hecho por Sayuri Cerna &copy; {new Date().getFullYear()}
         </p>
-
       </div>
     </footer>
   );

@@ -1,12 +1,9 @@
-// src/components/NavBar.jsx
-
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { FaBars, FaTimes } from 'react-icons/fa'; // Iconos de hamburguesa y cierre
+import { FaBars, FaTimes } from 'react-icons/fa'; 
 import { HashLink } from 'react-router-hash-link';
 
 function NavBar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // 💡 Lógica para el menú móvil
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const links = [
     { to: "/", label: "Home" },
@@ -26,15 +23,7 @@ function NavBar() {
         <div className="hidden md:flex justify-center space-x-8">
           {links.map(link => (
             <NavLink key={link.to} to={link.to} label={link.label} />
-          ))}
-          
-          {/* <a 
-            href="/cv/sayuri-cerna-cv.pdf" 
-            download 
-            className="bg-accent text-white hover:bg-primary px-3 py-2 rounded-md text-md font-medium transition duration-300 transform hover:scale-105 ml-8"
-          >
-            Descargar CV
-          </a> */}
+          ))}    
         </div>
         
         <button 
@@ -47,7 +36,6 @@ function NavBar() {
       </div>
       <div className={`fixed inset-0 bg-secondary/95 backdrop-blur-sm transform transition-transform duration-300 ease-in-out z-40 
                        ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} md:hidden`}>
-         
           <div className="flex flex-col items-center justify-center h-full space-y-8 pt-20">
               {links.map(link => (
                   
@@ -58,28 +46,11 @@ function NavBar() {
                     onClick={() => setIsMenuOpen(false)} 
                   />
               ))}
-              {/* <a 
-                href="/cv/sayuri-cerna-cv.pdf" 
-                download 
-                className="bg-accent text-white hover:bg-primary px-6 py-3 rounded-md text-lg font-bold transition duration-300"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Descargar CV
-              </a> */}
           </div>
       </div>
     </nav>
   );
 }
-
-// const NavLink2 = ({ to, label }) => (
-//     <Link 
-//         to={to} 
-//         className="text-text hover:bg-primary/30 hover:text-primary px-3 py-2 rounded-md text-md font-medium transition duration-300"
-//     >
-//         {label}
-//     </Link>
-// );
 
 const NavLink = ({ to, label }) => {
     const isHashLink = to.startsWith('#');
@@ -103,17 +74,6 @@ const NavLink = ({ to, label }) => {
         </HashLink>
     );
 };
-            
-
-// const NavLinkMobile2 = ({ to, label, onClick }) => (
-//     <Link 
-//         to={to} 
-//         onClick={onClick}
-//         className="text-primary text-3xl font-extrabold hover:text-accent transition duration-300"
-//     >
-//         {label}
-//     </Link>
-// );
 
 const NavLinkMobile = ({ to, label, onClick }) => {
     const isAnchor = to.startsWith('#');

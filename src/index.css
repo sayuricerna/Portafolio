@@ -1,10 +1,7 @@
-/* src/index.css */
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* 💡 TUS VARIABLES CSS EN :ROOT */
 :root {
     --text-color:#e5e3ee ;
     --background:#000000;

@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "title": "E-cde",
+    "description": "Plataforma completa de venta en línea con autenticación, carrito de compras y pasarela de pago simulada.",
+    "fullDescription": "Proyecto MERN con autenticación JWT, Redux, y simulación de pago.",
+    "image": "https://placehold.co/600x400/1e293b/a5f3fc?text=E-Commerce+Preview",
+    "images": [
+      "/images/ecommerce-cart.jpg",
+      "/images/ecommerce-checkout.jpg",
+      "/images/ecommerce-admin.jpg"
+    ],
+    "tech": ["React", "Node.js", "MongoDB", "Tailwind CSS"],
+    "detailsLink": "/projects/1",
+    "demoLink": "https://demo.ecommerce.com"
+  },
+  {
+    "id": 2,
+    "title": "Blog Personal con CMS",
+    "description": "Sistema CMS con Laravel y MySQL.",
+    "fullDescription": "Gestor de contenido con permisos de usuario y panel administrativo.",
+    "image": "https://placehold.co/600x400/1e293b/fbcfe8?text=Blog+Preview",
+    "images": [
+      "/images/blog-admin.jpg",
+      "/images/blog-post.jpg",
+      "/images/blog-mobile.jpg"
+    ],
+    "tech": ["PHP", "Laravel", "MySQL", "JavaScript"],
+    "detailsLink": "/projects/2",
+    "demoLink": "https://demo.blogcms.com"
+  }
+]
