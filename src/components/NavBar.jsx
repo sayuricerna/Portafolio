@@ -3,24 +3,25 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa'; // Iconos de hamburguesa y cierre
+import { HashLink } from 'react-router-hash-link';
 
 function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // 💡 Lógica para el menú móvil
 
   const links = [
     { to: "/", label: "Home" },
-    { to: "#about", label: "Acerca de mí" },
-    { to: "#projects", label: "Proyectos" },
-    { to: "#contacto", label: "Contacto" },
+    { to: "/#about", label: "Acerca de mí" },
+    { to: "/#projects", label: "Proyectos" },
+    { to: "/#contacto", label: "Contacto" },
   ];
 
   return (
     <nav className="bg-background z-30 p-5 sticky top-0 shadow-xl">
       <div className=" mx-auto flex justify-between items-center">
         
-        <Link to="/" className="bg-gradient-to-r from-primary to-accent text-transparent bg-clip-text text-subtitle font-bold hover:text-text transition duration-300 z-50">
+        <HashLink to="/#hero" className="bg-gradient-to-r from-primary to-accent text-transparent bg-clip-text text-subtitle font-bold hover:text-text transition duration-300 z-50">
           Sayuri Cerna
-        </Link>
+        </HashLink>
         
         <div className="hidden md:flex justify-center space-x-8">
           {links.map(link => (
@@ -94,12 +95,12 @@ const NavLink = ({ to, label }) => {
         );
     }
     return (
-        <Link 
+        <HashLink
             to={to}
             className={classes}
         >
             {label}
-        </Link>
+        </HashLink>
     );
 };
             
@@ -131,13 +132,13 @@ const NavLinkMobile = ({ to, label, onClick }) => {
     }
 
     return (
-        <Link 
+        <HashLink 
             to={to} 
             onClick={onClick}
             className={classes}
         >
             {label}
-        </Link>
+        </HashLink>
     );
 };     
 export default NavBar;

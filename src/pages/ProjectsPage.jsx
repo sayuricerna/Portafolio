@@ -1,13 +1,17 @@
 import React, { useState } from "react";
+// Importamos Link para la navegación interna de React Router
+import { Link } from "react-router-dom"; 
 import { FaExternalLinkAlt, FaInfoCircle, FaCode } from "react-icons/fa";
 
+// --- DATASET ---
 const FEATURED_PROJECTS = [
   {
     id: 1,
     title: "E-commerce React/Node",
     description:
       "Plataforma completa de venta en línea con autenticación, carrito de compras y pasarela de pago simulada. Enfoque en rendimiento y UX.",
-    image: "/images/project-ecommerce.jpg",
+    // Usamos placeholder para evitar rutas de imagen rotas al previsualizar
+    image: "https://placehold.co/600x400/1e293b/a5f3fc?text=E-Commerce+Preview", 
     tech: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
     detailsLink: "/projects/1",
     demoLink: "https://demo.ecommerce.com",
@@ -17,7 +21,8 @@ const FEATURED_PROJECTS = [
     title: "Blog Personal con CMS",
     description:
       "Sistema de gestión de contenido (CMS) basado en PHP/Laravel que permite la creación, edición y publicación de artículos de manera ágil.",
-    image: "/images/project-blog.jpg",
+    // Usamos placeholder para evitar rutas de imagen rotas al previsualizar
+    image: "https://placehold.co/600x400/1e293b/fbcfe8?text=Blog+Preview",
     tech: ["PHP", "Laravel", "MySQL", "JavaScript"],
     detailsLink: "/projects/2",
     demoLink: "https://demo.blogcms.com",
@@ -33,6 +38,38 @@ const TECH_COLORS = {
   Laravel: "text-[#FF2D20]",
   MySQL: "text-[#4479A1]",
   JavaScript: "text-[#F7DF1E]",
+};
+
+const ProjectButton = ({ children, href, icon: Icon, primary }) => {
+  const isInternal = href.startsWith('/');
+  const baseClasses = `flex items-center px-5 py-2 rounded-lg font-semibold text-sm transition duration-300 shadow-md`;
+  const colorClasses = primary
+    ? "bg-primary text-white hover:bg-accent"
+    : "bg-background text-accent border border-accent hover:bg-accent hover:text-background";
+
+  if (isInternal) {
+    return (
+      <Link 
+        to={href} 
+        className={`${baseClasses} ${colorClasses}`}
+        // Evita que abra nueva pestaña
+        target="_self"
+      >
+        <Icon className="mr-2" /> {children}
+      </Link>
+    );
+  }
+
+  return (
+    <a 
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`${baseClasses} ${colorClasses}`}
+    >
+      <Icon className="mr-2" /> {children}
+    </a>
+  );
 };
 
 function Projects() {
@@ -52,11 +89,13 @@ function Projects() {
     selectedTechs.length === 0
       ? FEATURED_PROJECTS
       : FEATURED_PROJECTS.filter((p) =>
-          selectedTechs.every((t) => p.tech.includes(t))
+          // Filtra proyectos que contienen *TODAS* las tecnologías seleccionadas
+          selectedTechs.every((t) => p.tech.includes(t)) 
         );
 
   return (
-    <section id="projects" className="py-20 px-6 bg-secondary/20">
+    // Se elimina la opacidad: bg-secondary/20 -> bg-secondary
+    <section id="projects" className="py-20 px-6">
       <div className="container mx-auto max-w-6xl">
         {/* Encabezado */}
         <h2 className="text-4xl md:text-5xl font-extrabold text-title text-center mb-12 animate-fade-in-up">
@@ -106,13 +145,13 @@ function Projects() {
 
         {/* BOTÓN VER TODOS */}
         <div className="text-center mt-16">
-          <a
-            href="/projects"
+          <Link // También usamos Link aquí
+            to="/projects"
             className="inline-flex items-center px-8 py-3 rounded-lg font-semibold transition duration-300 shadow-xl 
-                      bg-accent text-background border-2 border-accent hover:bg-transparent hover:text-accent"
+                             bg-accent text-background border-2 border-accent hover:bg-transparent hover:text-accent"
           >
             <FaCode className="mr-2" /> Ver más proyectos
-          </a>
+          </Link>
         </div>
       </div>
     </section>
@@ -120,9 +159,10 @@ function Projects() {
 }
 
 const ProjectCard = ({ project }) => (
-  <div className="flex flex-col lg:flex-row rounded-xl shadow-2xl overflow-hidden transform transition duration-500">
+  // Se elimina la opacidad: bg-secondary/50 -> bg-secondary
+  <div className="flex flex-col lg:flex-row rounded-xl shadow-2xl overflow-hidden transform transition duration-500 bg-secondary">
     <div className="lg:w-1/2 p-4 lg:p-0">
-      <div className="h-full w-full bg-secondary/50 rounded-lg lg:rounded-none overflow-hidden flex items-center justify-center">
+      <div className="h-full w-full bg-secondary rounded-lg lg:rounded-none overflow-hidden flex items-center justify-center">
         <img
           src={project.image}
           alt={`Captura de ${project.title}`}
@@ -143,7 +183,8 @@ const ProjectCard = ({ project }) => (
           {project.tech.map((techName) => (
             <span
               key={techName}
-              className={`flex items-center text-xs font-medium px-3 py-1 rounded-full border border-primary/50 text-text bg-secondary/40 ${
+              // Se elimina la opacidad: bg-secondary/40 -> bg-secondary
+              className={`flex items-center text-xs font-medium px-3 py-1 rounded-full border border-primary/50 text-text bg-secondary ${
                 TECH_COLORS[techName] || "text-text"
               }`}
             >
@@ -171,22 +212,6 @@ const ProjectCard = ({ project }) => (
       </div>
     </div>
   </div>
-);
-
-const ProjectButton = ({ children, href, icon: Icon, primary }) => (
-  <a
-    href={href}
-    target="_blank"
-    rel="noopener noreferrer"
-    className={`flex items-center px-5 py-2 rounded-lg font-semibold text-sm transition duration-300 shadow-md 
-            ${
-              primary
-                ? "bg-primary text-white hover:bg-accent"
-                : "bg-background text-accent border border-accent hover:bg-accent hover:text-background"
-            }`}
-  >
-    <Icon className="mr-2" /> {children}
-  </a>
 );
 
 export default Projects;

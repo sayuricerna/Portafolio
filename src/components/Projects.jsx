@@ -1,6 +1,6 @@
 import React from "react";
 import { FaExternalLinkAlt, FaInfoCircle, FaCode } from 'react-icons/fa';
-
+import { Link } from 'react-router-dom';
 const FEATURED_PROJECTS = [
     {
         id: 1,
@@ -31,7 +31,7 @@ const TECH_COLORS = {
 
 function Projects() {
   return (
-    <section id="projects" className="py-20 px-6 bg-secondary/20">
+    <section id="projects" className="py-20 px-6 ">
         <div className="container mx-auto max-w-6xl">
             
             {/* Encabezado */}
@@ -113,21 +113,32 @@ const ProjectCard = ({ project }) => {
 };
 
 
-// --- Componente Auxiliar: Botones de Proyecto ---
-const ProjectButton = ({ children, href, icon: Icon, primary }) => (
-    <a 
-        href={href} 
-        target="_blank" 
-        rel="noopener noreferrer" 
-        className={`flex items-center px-5 py-2 rounded-lg font-semibold text-sm transition duration-300 shadow-md 
-            ${primary 
-                ? 'bg-primary text-white hover:bg-accent' 
-                : 'bg-background text-accent border border-accent hover:bg-accent hover:text-background'
-            }`}
-    >
-        <Icon className="mr-2" /> {children}
-    </a>
-);
+const ProjectButton = ({ children, href, icon: Icon, primary }) => {
+  const isInternal = href.startsWith("/");
 
+  const baseClasses = `flex items-center px-5 py-2 rounded-lg font-semibold text-sm transition duration-300 shadow-md`;
+  const colorClasses = primary
+    ? "bg-primary text-white hover:bg-accent"
+    : "bg-background text-accent border border-accent hover:bg-accent hover:text-background";
+
+  if (isInternal) {
+    return (
+      <Link to={href} className={`${baseClasses} ${colorClasses}`}>
+        <Icon className="mr-2" /> {children}
+      </Link>
+    );
+  }
+
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`${baseClasses} ${colorClasses}`}
+    >
+      <Icon className="mr-2" /> {children}
+    </a>
+  );
+};
 
 export default Projects;

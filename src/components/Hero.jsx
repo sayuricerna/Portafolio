@@ -25,7 +25,7 @@ const TECH_ICONS_LIST = [
 
 function Hero() {
   return (
-    <section className="relative bg-background min-h-[90vh] flex flex-col justify-center items-center p-6 md:p-12 overflow-hidden">
+    <section id='hero' className="relative bg-background min-h-[90vh] flex flex-col justify-center items-center p-6 md:p-12 overflow-hidden">
       
       <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between z-10">
         
