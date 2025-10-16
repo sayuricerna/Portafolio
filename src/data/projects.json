@@ -14,9 +14,150 @@
     "detailsLink": "/projects/1",
     "demoLink": "https://demo.ecommerce.com"
   },
+  
   {
-    "id": 2,
+    "id": 3,
     "title": "Blog Personal con CMS",
+    "description": "Sistema CMS con Laravel y MySQL.",
+    "fullDescription": "Gestor de contenido con permisos de usuario y panel administrativo.",
+    "image": "https://placehold.co/600x400/1e293b/fbcfe8?text=Blog+Preview",
+    "images": [
+      "/images/blog-admin.jpg",
+      "/images/blog-post.jpg",
+      "/images/blog-mobile.jpg"
+    ],
+    "tech": ["PHP", "Laravel", "MySQL", "JavaScript"],
+    "detailsLink": "/projects/2",
+    "demoLink": "https://demo.blogcms.com"
+  },
+    {
+    "id": 4,
+    "title": "E-cde",
+    "description": "Plataforma completa de venta en línea con autenticación, carrito de compras y pasarela de pago simulada.",
+    "fullDescription": "Proyecto MERN con autenticación JWT, Redux, y simulación de pago.",
+    "image": "https://placehold.co/600x400/1e293b/a5f3fc?text=E-Commerce+Preview",
+    "images": [
+      "/images/ecommerce-cart.jpg",
+      "/images/ecommerce-checkout.jpg",
+      "/images/ecommerce-admin.jpg"
+    ],
+    "tech": ["React", "Node.js", "MongoDB", "Tailwind CSS"],
+    "detailsLink": "/projects/1",
+    "demoLink": "https://demo.ecommerce.com"
+  },
+  
+  {
+    "id": 5,
+    "title": "Blog Personal con CMS",
+    "description": "Sistema CMS con Laravel y MySQL.",
+    "fullDescription": "Gestor de contenido con permisos de usuario y panel administrativo.",
+    "image": "https://placehold.co/600x400/1e293b/fbcfe8?text=Blog+Preview",
+    "images": [
+      "/images/blog-admin.jpg",
+      "/images/blog-post.jpg",
+      "/images/blog-mobile.jpg"
+    ],
+    "tech": ["PHP", "Laravel", "MySQL", "JavaScript"],
+    "detailsLink": "/projects/2",
+    "demoLink": "https://demo.blogcms.com"
+  },
+    {
+    "id": 6,
+    "title": "E-cde",
+    "description": "Plataforma completa de venta en línea con autenticación, carrito de compras y pasarela de pago simulada.",
+    "fullDescription": "Proyecto MERN con autenticación JWT, Redux, y simulación de pago.",
+    "image": "https://placehold.co/600x400/1e293b/a5f3fc?text=E-Commerce+Preview",
+    "images": [
+      "/images/ecommerce-cart.jpg",
+      "/images/ecommerce-checkout.jpg",
+      "/images/ecommerce-admin.jpg"
+    ],
+    "tech": ["React", "Node.js", "MongoDB", "Tailwind CSS"],
+    "detailsLink": "/projects/1",
+    "demoLink": "https://demo.ecommerce.com"
+  },
+  
+  {
+    "id": 7,
+    "title": "Blog Personal con CMS",
+    "description": "Sistema CMS con Laravel y MySQL.",
+    "fullDescription": "Gestor de contenido con permisos de usuario y panel administrativo.",
+    "image": "https://placehold.co/600x400/1e293b/fbcfe8?text=Blog+Preview",
+    "images": [
+      "/images/blog-admin.jpg",
+      "/images/blog-post.jpg",
+      "/images/blog-mobile.jpg"
+    ],
+    "tech": ["PHP", "Laravel", "MySQL", "JavaScript"],
+    "detailsLink": "/projects/2",
+    "demoLink": "https://demo.blogcms.com"
+  },
+    {
+    "id": 8,
+    "title": "E-cde",
+    "description": "Plataforma completa de venta en línea con autenticación, carrito de compras y pasarela de pago simulada.",
+    "fullDescription": "Proyecto MERN con autenticación JWT, Redux, y simulación de pago.",
+    "image": "https://placehold.co/600x400/1e293b/a5f3fc?text=E-Commerce+Preview",
+    "images": [
+      "/images/ecommerce-cart.jpg",
+      "/images/ecommerce-checkout.jpg",
+      "/images/ecommerce-admin.jpg"
+    ],
+    "tech": ["React", "Node.js", "MongoDB", "Tailwind CSS"],
+    "detailsLink": "/projects/1",
+    "demoLink": "https://demo.ecommerce.com"
+  },
+  
+  {
+    "id": 9,
+    "title": "Blog Personal con CMS",
+    "description": "Sistema CMS con Laravel y MySQL.",
+    "fullDescription": "Gestor de contenido con permisos de usuario y panel administrativo.",
+    "image": "https://placehold.co/600x400/1e293b/fbcfe8?text=Blog+Preview",
+    "images": [
+      "/images/blog-admin.jpg",
+      "/images/blog-post.jpg",
+      "/images/blog-mobile.jpg"
+    ],
+    "tech": ["PHP", "Laravel", "MySQL", "JavaScript"],
+    "detailsLink": "/projects/2",
+    "demoLink": "https://demo.blogcms.com"
+  },
+    {
+    "id": 10,
+    "title": "E-cde",
+    "description": "Plataforma completa de venta en línea con autenticación, carrito de compras y pasarela de pago simulada.",
+    "fullDescription": "Proyecto MERN con autenticación JWT, Redux, y simulación de pago.",
+    "image": "https://placehold.co/600x400/1e293b/a5f3fc?text=E-Commerce+Preview",
+    "images": [
+      "/images/ecommerce-cart.jpg",
+      "/images/ecommerce-checkout.jpg",
+      "/images/ecommerce-admin.jpg"
+    ],
+    "tech": ["React", "Node.js", "MongoDB", "Tailwind CSS"],
+    "detailsLink": "/projects/1",
+    "demoLink": "https://demo.ecommerce.com"
+  },
+  
+  {
+    "id": 11,
+    "title": "NUEMOR 11S",
+    "description": "Sistema CMS con Laravel y MySQL.",
+    "fullDescription": "Gestor de contenido con permisos de usuario y panel administrativo.",
+    "image": "https://placehold.co/600x400/1e293b/fbcfe8?text=Blog+Preview",
+    "images": [
+      "/images/blog-admin.jpg",
+      "/images/blog-post.jpg",
+      "/images/blog-mobile.jpg"
+    ],
+    "tech": ["PHP", "Laravel", "MySQL", "JavaScript"],
+    "detailsLink": "/projects/2",
+    "demoLink": "https://demo.blogcms.com"
+  }
+  ,
+  {
+    "id": 12,
+    "title": "NUEMOR 12",
     "description": "Sistema CMS con Laravel y MySQL.",
     "fullDescription": "Gestor de contenido con permisos de usuario y panel administrativo.",
     "image": "https://placehold.co/600x400/1e293b/fbcfe8?text=Blog+Preview",

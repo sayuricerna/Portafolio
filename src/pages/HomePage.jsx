@@ -8,7 +8,7 @@ function HomePage (){
         <>
         <Hero/>
         <About></About>
-        <Projects></Projects>
+        <Projects initialLimit={2} />
         </>
     )
 }

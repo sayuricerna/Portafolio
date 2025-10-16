@@ -1,17 +1,44 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaExternalLinkAlt, FaInfoCircle, FaCode } from "react-icons/fa";
-import projectsData from "../data/projects.json"; 
+import {
+  SiReact,
+  SiNodedotjs,
+  SiMongodb,
+  SiPython,
+  SiHtml5,
+  SiCss3,
+  SiJavascript,
+  SiPhp,
+  SiLaravel,
+  SiMysql,
+  SiSqlite,
+} from "react-icons/si";
+import { FaChevronDown } from "react-icons/fa";
+import projectsData from "../data/projects.json";
 
-const TECH_COLORS = {
-  React: "text-[#61DAFB]",
-  "Node.js": "text-[#339933]",
-  MongoDB: "text-[#47A248]",
-  "Tailwind CSS": "text-[#06B6D4]",
-  PHP: "text-[#777BB4]",
-  Laravel: "text-[#FF2D20]",
-  MySQL: "text-[#4479A1]",
-  JavaScript: "text-[#F7DF1E]",
+const TECH_MAP = {
+  React: { Icon: SiReact, color: "text-[#61DAFB]" },
+  "Node.js": { Icon: SiNodedotjs, color: "text-[#339933]" },
+  MongoDB: { Icon: SiMongodb, color: "text-[#47A248]" },
+  "Tailwind CSS": { Icon: SiCss3, color: "text-[#06B6D4]" },
+  PHP: { Icon: SiPhp, color: "text-[#777BB4]" },
+  Laravel: { Icon: SiLaravel, color: "text-[#FF2D20]" },
+  MySQL: { Icon: SiMysql, color: "text-[#4479A1]" },
+  JavaScript: { Icon: SiJavascript, color: "text-[#F7DF1E]" },
+  Redux: { Icon: SiJavascript, color: "text-[#764ABC]" },
+  HTML5: { Icon: SiHtml5, color: "text-[#E34F26]" },
+  CSS3: { Icon: SiCss3, color: "text-[#1572B6]" },
+};
+
+const TechTag = ({ techName }) => {
+  const techData = TECH_MAP[techName] || { Icon: FaInfoCircle, color: "text-text" };
+  return (
+    <span className="flex items-center text-xs font-medium px-3 py-1 rounded-full border border-primary bg-secondary">
+      <techData.Icon className={`mr-2 w-4 h-4 ${techData.color}`} />
+      {techName}
+    </span>
+  );
 };
 
 const ProjectButton = ({ children, href, icon: Icon, primary }) => {
@@ -42,74 +69,200 @@ const ProjectButton = ({ children, href, icon: Icon, primary }) => {
   );
 };
 
-function Projects() {
-  const [selectedTechs, setSelectedTechs] = useState([]);
-  const allTechs = Array.from(new Set(projectsData.flatMap((p) => p.tech)));
-  const toggleTech = (tech) => {
-    setSelectedTechs((prev) =>
-      prev.includes(tech) ? prev.filter((t) => t !== tech) : [...prev, tech]
-    );
-  };
+// function Projects() {
+//   const [selectedTechs, setSelectedTechs] = useState([]);
+//   const allTechs = Array.from(new Set(projectsData.flatMap((p) => p.tech)));
 
-  const filteredProjects =
-    selectedTechs.length === 0
-      ? projectsData
-      : projectsData.filter((p) =>
-          selectedTechs.every((t) => p.tech.includes(t))
-        );
+//   const toggleTech = (tech) => {
+//     setSelectedTechs((prev) =>
+//       prev.includes(tech) ? prev.filter((t) => t !== tech) : [...prev, tech]
+//     );
+//   };
 
-  return (
-    <section id="projects" className="py-20 px-6 bg-background text-title">
-      <div className="container mx-auto max-w-6xl">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-12">
-          Mis <span className="text-primary">Proyectos</span>
-        </h2>
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
-          <button
-            onClick={() => setSelectedTechs([])}
-            className={`px-4 py-2 rounded-full text-sm font-semibold border transition duration-300 shadow-md ${
-              selectedTechs.length === 0
-                ? "bg-primary text-white border-primary"
-                : "bg-background text-title border-gray-300 hover:bg-primary hover:text-white"
-            }`}
-          >
-            Todos
-          </button>
+//   const filteredProjects =
+//     selectedTechs.length === 0
+//       ? projectsData
+//       : projectsData.filter((p) =>
+//           selectedTechs.every((t) => p.tech.includes(t))
+//         );
 
-          {allTechs.map((tech) => (
-            <button
-              key={tech}
-              onClick={() => toggleTech(tech)}
-              className={`px-4 py-2 rounded-full text-sm font-semibold border transition duration-300 shadow-md ${
-                selectedTechs.includes(tech)
-                  ? "bg-primary text-white border-primary"
-                  : "bg-background text-title border-gray-300 hover:bg-primary hover:text-white"
-              }`}
-            >
-              {tech}
-            </button>
-          ))}
-        </div>
+//   return (
+//     <section id="projects" className="py-20 px-6 bg-background text-title">
+//       <div className="container mx-auto max-w-6xl">
+//         <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-12">
+//           Mis <span className="text-primary">Proyectos</span>
+//         </h2>
 
-        <div className="grid grid-cols-1 gap-12 lg:gap-16">
-          {filteredProjects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
-        </div>
+//         {/* Filtro */}
+//         <div className="flex flex-wrap justify-center gap-3 mb-12">
+//           <button
+//             onClick={() => setSelectedTechs([])}
+//             className={`px-4 py-2 rounded-full font-semibold border transition duration-300 shadow-md ${
+//               selectedTechs.length === 0
+//                 ? "bg-primary  text-paragraph border-primary"
+//                 : "bg-background text-paragraph border-gray-300 hover:bg-primary"
+//             }`}
+//           >
+//             Todos
+//           </button>
 
-        <div className="text-center mt-16">
-          <Link
-            to="/projects"
-            className="inline-flex items-center px-8 py-3 rounded-lg font-semibold transition duration-300 shadow-xl 
-                       bg-accent text-background border-2 border-accent hover:bg-transparent hover:text-accent"
-          >
-            <FaCode className="mr-2" /> Ver más proyectos
-          </Link>
-        </div>
-      </div>
-    </section>
-  );
+//           {allTechs.map((tech) => (
+//             <button
+//               key={tech}
+//               onClick={() => toggleTech(tech)}
+//               className={`px-4 py-2 rounded-full font-semibold border transition duration-300 shadow-md ${
+//                 selectedTechs.includes(tech)
+//                   ? "bg-primary text-paragraph border-primary"
+//                   : "bg-background text-paragraph border-gray-300 hover:bg-primary"
+//               }`}
+//             >
+//               {tech}
+//             </button>
+//           ))}
+//         </div>
+
+//         <div className="grid grid-cols-1 gap-12 lg:gap-16">
+//           {filteredProjects.map((project) => (
+//             <ProjectCard key={project.id} project={project} />
+//           ))}
+//         </div>
+//         <div className="text-center mt-16">
+//           <Link
+//             to="/projects"
+//             className="text-paragraph inline-flex items-center px-8 py-3 rounded-lg font-semibold transition duration-300 shadow-xl 
+//                         bg-accent text-background border-2 border-accent hover:bg-transparent hover:text-accent"
+//           >
+//             <FaCode className="mr-2" /> Ver más proyectos
+//           </Link>
+//         </div>
+
+
+//       </div>
+//     </section>
+//   );
+// }
+
+// 💡 Cambiamos la firma para aceptar 'initialLimit'
+function Projects({ initialLimit }) {
+  const ITEMS_PER_PAGE = 5; // 💡 Define el tamaño de la "página"
+  
+  const [selectedTechs, setSelectedTechs] = useState([]);
+  // 💡 Si estamos en la página de proyectos (sin initialLimit), empezamos mostrando 10, sino el initialLimit
+  const [displayLimit, setDisplayLimit] = useState(
+    initialLimit || ITEMS_PER_PAGE
+  ); 
+  
+  const allTechs = Array.from(new Set(projectsData.flatMap((p) => p.tech)));
+
+  const toggleTech = (tech) => {
+    setSelectedTechs((prev) =>
+      prev.includes(tech) ? prev.filter((t) => t !== tech) : [...prev, tech]
+    );
+    // 💡 Resetear el límite al aplicar el filtro
+    setDisplayLimit(initialLimit || ITEMS_PER_PAGE);
+  };
+
+  // Filtra los proyectos
+  const filteredProjects =
+    selectedTechs.length === 0
+      ? projectsData
+      : projectsData.filter((p) =>
+          selectedTechs.every((t) => p.tech.includes(t))
+        );
+  
+  // 💡 Aplica el límite de visualización
+  const projectsToDisplay = filteredProjects.slice(0, displayLimit);
+  
+  // 💡 Lógica para el botón "Ver Más" de la paginación
+  const handleLoadMore = () => {
+    setDisplayLimit(prevLimit => prevLimit + ITEMS_PER_PAGE);
+  };
+
+  // 💡 Determinar si mostrar el botón de paginación o el de ir a la página de proyectos
+  const isProjectPage = !initialLimit; // True si no se pasa initialLimit (ProjectsPage)
+  const hasMoreProjects = filteredProjects.length > displayLimit;
+  
+  // 💡 Título se cambia basado en si tiene initialLimit o no
+  const titleText = isProjectPage ? "Todos mis Proyectos" : "Proyectos Destacados";
+
+
+  return (
+    <section id="projects" className="py-20 px-6 bg-background text-title">
+      <div className="container mx-auto max-w-6xl">
+        <h2 className=" text-4xl md:text-5xl font-extrabold text-title text-center mb-12">
+          {titleText} <span className="text-primary">{!isProjectPage ? '💻' : ''}</span>
+        </h2>
+
+        {isProjectPage && (
+          <div className="flex flex-wrap justify-center gap-3 mb-12">
+            <button
+              onClick={() => setSelectedTechs([])}
+              className={`px-4 py-2 rounded-full font-semibold border transition duration-300 shadow-md ${
+                selectedTechs.length === 0
+                  ? "bg-primary text-paragraph border-primary" 
+                  : "bg-background text-paragraph border-gray-300 hover:bg-primary"
+              }`}
+            >
+              Todos
+            </button>
+            {allTechs.map((tech) => (
+              <button
+                key={tech}
+                onClick={() => toggleTech(tech)}
+                className={`px-4 py-2 rounded-full font-semibold border transition duration-300 shadow-md ${
+                  selectedTechs.includes(tech)
+                    ? "bg-primary text-paragraph border-primary"
+                    : "bg-background text-paragraph border-gray-300 hover:bg-primary "
+                }`}
+              >
+                {tech}
+              </button>
+            ))}
+          </div>
+        )}
+
+        <div className="grid grid-cols-1 gap-12 lg:gap-16">
+          {projectsToDisplay.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
+        </div>
+        
+        {/* Lógica del Botón */}
+        <div className="text-center mt-16">
+          {
+            // 1. Botón para el Homepage (limitado)
+            !isProjectPage ? ( 
+              <Link
+                to="/projects"
+                className="inline-flex items-center px-8 py-3 rounded-lg font-semibold transition duration-300 shadow-xl 
+                            bg-accent text-background border-2 border-accent hover:bg-transparent hover:text-accent"
+              >
+                <FaCode className="mr-2" /> Ver más proyectos
+              </Link>
+            ) 
+            // 2. Botón para la ProjectsPage (paginación)
+            : hasMoreProjects && (
+              <button
+                onClick={handleLoadMore}
+                className="inline-flex items-center px-8 py-3 rounded-lg font-semibold transition duration-300 shadow-xl 
+                            bg-accent text-background border-2 border-accent hover:bg-transparent hover:text-accent"
+              >
+                <FaChevronDown className="mr-2" /> Ver más ({Math.min(ITEMS_PER_PAGE, filteredProjects.length - displayLimit)})
+              </button>
+            )
+          }
+        </div>
+
+
+      </div>
+    </section>
+  );
 }
+
+
+
+
+
 
 const ProjectCard = ({ project }) => (
   <div className="flex flex-col lg:flex-row rounded-xl shadow-2xl overflow-hidden transform transition duration-500 bg-secondary">
@@ -131,14 +284,7 @@ const ProjectCard = ({ project }) => (
         </h4>
         <div className="flex flex-wrap gap-3">
           {project.tech.map((tech) => (
-            <span
-              key={tech}
-              className={`text-xs font-medium px-3 py-1 rounded-full border border-primary/50 bg-secondary ${
-                TECH_COLORS[tech] || "text-text"
-              }`}
-            >
-              {tech}
-            </span>
+            <TechTag key={tech} techName={tech} />
           ))}
         </div>
       </div>
