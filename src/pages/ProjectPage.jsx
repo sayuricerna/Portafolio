@@ -34,7 +34,7 @@ const TECH_MAP = {
 const TechTag = ({ techName }) => {
   const techData = TECH_MAP[techName] || { Icon: FaCode, color: "text-text" };
   return (
-    <span className="flex items-center text-sm font-medium px-4 py-2 rounded-lg bg-secondary shadow-inner border border-primary/50 text-text">
+    <span className="flex items-center text-xs font-medium px-4 py-2 rounded-lg  shadow-inner border border-primary/50 text-text">
       <techData.Icon className={`mr-2 w-4 h-4 ${techData.color}`} />
       {techName}
     </span>
@@ -59,7 +59,7 @@ function ProjectPage() {
             to="/projects"
             className="inline-flex items-center text-accent hover:text-primary transition duration-300"
           >
-            <FaArrowLeft className="mr-2" /> Ver más proyectos
+            <FaArrowLeft className="mr-2" /> Volver a Proyectos
           </Link>
         </div>
       </section>
@@ -91,7 +91,7 @@ function ProjectPage() {
             to="/projects"
             className="inline-flex items-center text-primary hover:text-accent transition duration-300 mb-4 md:mb-0"
           >
-            <FaArrowLeft className="mr-2" /> Ver más proyectos
+            <FaArrowLeft className="mr-2" /> Volver a Proyectos
           </Link>
           <h1 className="text-4xl md:text-5xl font-extrabold text-title">
             {project.title}
@@ -124,24 +124,24 @@ function ProjectPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition duration-300 shadow-xl bg-accent text-background border-2 border-accent hover:bg-transparent hover:text-accent"
               >
-                <FaExternalLinkAlt className="mr-2" /> Ver Demo en Vivo
+                <FaExternalLinkAlt className="mr-2" /> Ver Demo
               </a>
             </div>
           </div>
         </div>
 
-        <div className="p-8 bg-secondary rounded-xl shadow-xl border border-primary/20">
+        <div className="p-8 bg rounded-xl shadow-xl ">
           <div className="mb-8">
-            <h2 className="text-3xl font-bold text-title mb-4 border-b border-accent/50 pb-2">
+            <h2 className="text-subtitle font-bold  mb-4  pb-2">
               Descripción
             </h2>
-            <p className="text-text leading-relaxed whitespace-pre-wrap">
+            <p className="text-caption text-text leading-relaxed whitespace-pre-wrap">
               {project.fullDescription || project.description}
             </p>
           </div>
 
           <div>
-            <h2 className="text-3xl font-bold text-title mb-4 border-b border-accent/50 pb-2">
+            <h2 className="font-bold text-paragraph mb-4 pb-2">
               Tecnologías Utilizadas
             </h2>
             <div className="flex flex-wrap gap-4">

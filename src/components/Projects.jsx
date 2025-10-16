@@ -34,7 +34,7 @@ const TECH_MAP = {
 const TechTag = ({ techName }) => {
   const techData = TECH_MAP[techName] || { Icon: FaInfoCircle, color: "text-text" };
   return (
-    <span className="flex items-center text-xs font-medium px-3 py-1 rounded-full border border-primary bg-secondary">
+    <span className="flex items-center text-xs font-medium px-3 py-1 rounded-full border border-primary">
       <techData.Icon className={`mr-2 w-4 h-4 ${techData.color}`} />
       {techName}
     </span>
@@ -188,9 +188,9 @@ function Projects({ initialLimit }) {
 
   return (
     <section id="projects" className="py-20 px-6 bg-background text-title">
-      <div className="container mx-auto max-w-6xl">
-        <h2 className=" text-4xl md:text-5xl font-extrabold text-title text-center mb-12">
-          {titleText} <span className="text-primary">{!isProjectPage ? '💻' : ''}</span>
+      <div className="container mx-auto max-w-5xl">
+        <h2 className=" md:text-5xl font-extrabold text-title text-center mb-12">
+          {titleText}
         </h2>
 
         {isProjectPage && (
@@ -199,8 +199,8 @@ function Projects({ initialLimit }) {
               onClick={() => setSelectedTechs([])}
               className={`px-4 py-2 rounded-full font-semibold border transition duration-300 shadow-md ${
                 selectedTechs.length === 0
-                  ? "bg-primary text-paragraph border-primary" 
-                  : "bg-background text-paragraph border-gray-300 hover:bg-primary"
+                  ? "bg-primary text-caption border-primary" 
+                  : "bg-background text-caption border-gray-300 hover:bg-primary"
               }`}
             >
               Todos
@@ -211,8 +211,8 @@ function Projects({ initialLimit }) {
                 onClick={() => toggleTech(tech)}
                 className={`px-4 py-2 rounded-full font-semibold border transition duration-300 shadow-md ${
                   selectedTechs.includes(tech)
-                    ? "bg-primary text-paragraph border-primary"
-                    : "bg-background text-paragraph border-gray-300 hover:bg-primary "
+                    ? "bg-primary text-caption border-primary"
+                    : "bg-background text-caption border-gray-300 hover:bg-primary "
                 }`}
               >
                 {tech}
@@ -227,24 +227,21 @@ function Projects({ initialLimit }) {
           ))}
         </div>
         
-        {/* Lógica del Botón */}
         <div className="text-center mt-16">
           {
-            // 1. Botón para el Homepage (limitado)
             !isProjectPage ? ( 
               <Link
                 to="/projects"
-                className="inline-flex items-center px-8 py-3 rounded-lg font-semibold transition duration-300 shadow-xl 
+                className="text-caption inline-flex items-center px-8 py-3 rounded-lg font-semibold transition duration-300 shadow-xl 
                             bg-accent text-background border-2 border-accent hover:bg-transparent hover:text-accent"
               >
-                <FaCode className="mr-2" /> Ver más proyectos
+                <FaCode className=" mr-2" /> Ver más proyectos
               </Link>
             ) 
-            // 2. Botón para la ProjectsPage (paginación)
             : hasMoreProjects && (
               <button
                 onClick={handleLoadMore}
-                className="inline-flex items-center px-8 py-3 rounded-lg font-semibold transition duration-300 shadow-xl 
+                className="text-caption inline-flex items-center px-8 py-3 rounded-lg font-semibold transition duration-300 shadow-xl 
                             bg-accent text-background border-2 border-accent hover:bg-transparent hover:text-accent"
               >
                 <FaChevronDown className="mr-2" /> Ver más ({Math.min(ITEMS_PER_PAGE, filteredProjects.length - displayLimit)})
@@ -265,8 +262,8 @@ function Projects({ initialLimit }) {
 
 
 const ProjectCard = ({ project }) => (
-  <div className="flex flex-col lg:flex-row rounded-xl shadow-2xl overflow-hidden transform transition duration-500 bg-secondary">
-    <div className="lg:w-1/2 p-4 lg:p-0">
+  <div className="flex flex-col md:flex-row rounded-xl shadow-2xl overflow-hidden transform transition duration-500 bg-[#ffffff0f]">
+    <div className="md:w-1/2 p-4 md:p-0">
       <img
         src={project.image}
         alt={project.title}
@@ -274,12 +271,12 @@ const ProjectCard = ({ project }) => (
       />
     </div>
 
-    <div className="lg:w-1/2 p-6 md:p-8 space-y-4">
+    <div className="md:w-1/2 p-6 md:p-8 space-y-4">
       <h3 className="text-3xl font-bold text-title">{project.title}</h3>
       <p className="text-text leading-relaxed">{project.description}</p>
 
       <div>
-        <h4 className="text-sm font-semibold text-accent uppercase mb-2">
+        <h4 className="text-caption font-thin text-accent uppercase mb-2">
           Tecnologías:
         </h4>
         <div className="flex flex-wrap gap-3">

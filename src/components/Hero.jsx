@@ -42,10 +42,10 @@ function Hero() {
             Desarrolladora Web | Frontend & Backend
           </h2>         
           <div className="flex space-x-4 lg:space-x-6 animate-fade-in delay-300">
-            <HeroButton Icon={FaLinkedinIn} href="[TU_LINK_LINKEDIN]" />
-            <HeroButton Icon={FaGithub} href="[TU_LINK_GITHUB]" />
-            <HeroButton Icon={FaYoutube} href="[TU_LINK_YOUTUBE]" />
-            <HeroButton Icon={FaEnvelope} href="mailto:tuemail@dominio.com" />
+            <HeroButton Icon={FaLinkedinIn} href="https://www.linkedin.com/in/sayuricerna/" />
+            <HeroButton Icon={FaGithub} href="https://github.com/sayuricerna" />
+            <HeroButton Icon={FaYoutube} href="https://www.youtube.com/@SayuriMelinaCG" />
+            <HeroButton Icon={FaEnvelope} href="mailto:cernasayuri@gmail.com" />
           </div>
         </div>
         <div className="relative w-full h-80 lg:w-1/2 flex items-center justify-center">          

@@ -68,12 +68,10 @@ function About (){
                         <SkillBlock title="Database" skills={SKILLS_DATA.database} />                        
                     </div>
                     <div className="flex justify-center space-x-4 pt-4">
-                        <AboutButton primary={true} href="/about">
+                        <AboutButton primary={false} href="/about">
                             <FaArrowRight className="mr-2" /> Saber Más
                         </AboutButton>
-                        <AboutButton primary={false} href="/downloads/tu_cv.pdf"> 
-                            <FaDownload className="mr-2" /> Descargar CV
-                        </AboutButton>
+
                     </div>
                 </div>
             </div>

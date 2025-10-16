@@ -14,7 +14,21 @@
     "detailsLink": "/projects/1",
     "demoLink": "https://demo.ecommerce.com"
   },
-  
+   {
+    "id": 2,
+    "title": "Blog Personal con CMS",
+    "description": "Sistema CMS con Laravel y MySQL.",
+    "fullDescription": "Gestor de contenido con permisos de usuario y panel administrativo.",
+    "image": "https://placehold.co/600x400/1e293b/fbcfe8?text=Blog+Preview",
+    "images": [
+      "/images/blog-admin.jpg",
+      "/images/blog-post.jpg",
+      "/images/blog-mobile.jpg"
+    ],
+    "tech": ["PHP", "Laravel", "MySQL", "JavaScript"],
+    "detailsLink": "/projects/2",
+    "demoLink": "https://demo.blogcms.com"
+  },
   {
     "id": 3,
     "title": "Blog Personal con CMS",

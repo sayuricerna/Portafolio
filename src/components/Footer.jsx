@@ -6,14 +6,14 @@ function Footer() {
       <div className="container mx-auto flex flex-col items-center space-y-4">
         <div className="text-center mb-2">
           <h2 className="text-title font-bold text-text">Sayuri Cerna</h2>
-          <p className="text-sm text-gray-400 flex items-center justify-center space-x-1">
+          {/* <p className="text-sm text-gray-400 flex items-center justify-center space-x-1">
             <FaPhoneAlt className="text-accent" />
             <span>+593 999 9999</span>
-          </p>
+          </p> */}
         </div>
         <div className="flex space-x-6 text-2xl text-gray-300">
           <a 
-            href="[TU_LINK_LINKEDIN]" 
+            href="https://www.linkedin.com/in/sayuricerna/" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="hover:text-accent transition duration-300"
@@ -21,7 +21,7 @@ function Footer() {
             <FaLinkedinIn />
           </a>
           <a 
-            href="[TU_LINK_GITHUB]" 
+            href="https://github.com/sayuricerna" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="hover:text-accent transition duration-300"
@@ -29,18 +29,10 @@ function Footer() {
             <FaGithub />
           </a>
           <a 
-            href="mailto:tuemail@dominio.com" 
+            href="mailto:cernasayuri@gmail.com" 
             className="hover:text-accent transition duration-300"
           >
             <FaEnvelope />
-          </a>
-          <a 
-            href="[TU_LINK_YOUTUBE]" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="hover:text-accent transition duration-300"
-          >
-            <FaYoutube />
           </a>
         </div>
         <p className="text-xs font-medium text-gray-500 uppercase tracking-widest pt-2">
