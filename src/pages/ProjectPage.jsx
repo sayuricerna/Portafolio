@@ -86,13 +86,15 @@ function ProjectPage() {
   return (
     <section className="min-h-screen bg-secondary/10 px-6 py-20">
       <div className="container mx-auto max-w-7xl">
+        
         <div className="mb-10 flex flex-col md:flex-row justify-between items-start md:items-center">
           <Link
             to="/projects"
-            className="inline-flex items-center text-primary hover:text-accent transition duration-300 mb-4 md:mb-0"
+            className="text-caption inline-flex items-center text-accent hover:text-primary transition duration-300"
           >
             <FaArrowLeft className="mr-2" /> Volver a Proyectos
           </Link>
+                  
           <h1 className="text-4xl md:text-5xl font-extrabold text-title">
             {project.title}
           </h1>

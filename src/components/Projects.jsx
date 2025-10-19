@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaExternalLinkAlt, FaInfoCircle, FaCode } from "react-icons/fa";
+import { FaExternalLinkAlt, FaInfoCircle, FaCode , FaArrowLeft} from "react-icons/fa";
 import {
   SiReact,
   SiNodedotjs,
@@ -142,12 +142,9 @@ const ProjectButton = ({ children, href, icon: Icon, primary }) => {
 //   );
 // }
 
-// 💡 Cambiamos la firma para aceptar 'initialLimit'
 function Projects({ initialLimit }) {
-  const ITEMS_PER_PAGE = 5; // 💡 Define el tamaño de la "página"
-  
+  const ITEMS_PER_PAGE = 5;
   const [selectedTechs, setSelectedTechs] = useState([]);
-  // 💡 Si estamos en la página de proyectos (sin initialLimit), empezamos mostrando 10, sino el initialLimit
   const [displayLimit, setDisplayLimit] = useState(
     initialLimit || ITEMS_PER_PAGE
   ); 
@@ -158,11 +155,9 @@ function Projects({ initialLimit }) {
     setSelectedTechs((prev) =>
       prev.includes(tech) ? prev.filter((t) => t !== tech) : [...prev, tech]
     );
-    // 💡 Resetear el límite al aplicar el filtro
     setDisplayLimit(initialLimit || ITEMS_PER_PAGE);
   };
 
-  // Filtra los proyectos
   const filteredProjects =
     selectedTechs.length === 0
       ? projectsData
@@ -170,29 +165,32 @@ function Projects({ initialLimit }) {
           selectedTechs.every((t) => p.tech.includes(t))
         );
   
-  // 💡 Aplica el límite de visualización
   const projectsToDisplay = filteredProjects.slice(0, displayLimit);
-  
-  // 💡 Lógica para el botón "Ver Más" de la paginación
   const handleLoadMore = () => {
     setDisplayLimit(prevLimit => prevLimit + ITEMS_PER_PAGE);
   };
 
-  // 💡 Determinar si mostrar el botón de paginación o el de ir a la página de proyectos
-  const isProjectPage = !initialLimit; // True si no se pasa initialLimit (ProjectsPage)
+  const isProjectPage = !initialLimit;
   const hasMoreProjects = filteredProjects.length > displayLimit;
-  
-  // 💡 Título se cambia basado en si tiene initialLimit o no
   const titleText = isProjectPage ? "Todos mis Proyectos" : "Proyectos Destacados";
 
 
   return (
     <section id="projects" className="py-20 px-6 bg-background text-title">
       <div className="container mx-auto max-w-5xl">
-        <h2 className=" md:text-5xl font-extrabold text-title text-center mb-12">
+          
+        <h2 className=" md:text-5xl font-extrabold text-title text-center ">
           {titleText}
         </h2>
-
+          <Link
+            to="/projects"
+            className="text-caption inline-flex items-center text-accent hover:text-primary transition duration-300"
+          >
+            <FaArrowLeft className="mr-2" /> Volver a Proyectos
+          </Link>
+        
+              
+        
         {isProjectPage && (
           <div className="flex flex-wrap justify-center gap-3 mb-12">
             <button
@@ -225,8 +223,7 @@ function Projects({ initialLimit }) {
           {projectsToDisplay.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
-        </div>
-        
+        </div>  
         <div className="text-center mt-16">
           {
             !isProjectPage ? ( 
@@ -249,8 +246,6 @@ function Projects({ initialLimit }) {
             )
           }
         </div>
-
-
       </div>
     </section>
   );
