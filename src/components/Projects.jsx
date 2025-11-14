@@ -179,20 +179,29 @@ function Projects({ initialLimit }) {
     <section id="projects" className="py-20 px-6 bg-background text-title">
       <div className="container mx-auto max-w-5xl">
           
-        <h2 className=" md:text-5xl font-extrabold text-title text-center ">
+        <h2 className=" md:text-5xl font-extrabold text-title text-center mb-12">
           {titleText}
         </h2>
-          <Link
-            to="/projects"
-            className="text-caption inline-flex items-center text-accent hover:text-primary transition duration-300"
-          >
-            <FaArrowLeft className="mr-2" /> Volver a Proyectos
-          </Link>
+        
+          
+          {isProjectPage && (
+           
+              <Link
+                to="/" 
+                className="inline-flex items-center text-sm font-semibold text-accent hover:text-primary transition duration-300"
+              >
+                <FaArrowLeft className="mr-2" /> Volver
+              </Link>
+           
+          )}
+          
+        
         
               
         
         {isProjectPage && (
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
+
+          <div className="flex flex-wrap justify-center gap-3 mb-12">   
             <button
               onClick={() => setSelectedTechs([])}
               className={`px-4 py-2 rounded-full font-semibold border transition duration-300 shadow-md ${
@@ -232,7 +241,7 @@ function Projects({ initialLimit }) {
                 className="text-caption inline-flex items-center px-8 py-3 rounded-lg font-semibold transition duration-300 shadow-xl 
                             bg-accent text-background border-2 border-accent hover:bg-transparent hover:text-accent"
               >
-                <FaCode className=" mr-2" /> Ver más proyectos
+                <FaCode className=" mr-2" /> Ver Proyectos
               </Link>
             ) 
             : hasMoreProjects && (

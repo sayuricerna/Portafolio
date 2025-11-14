@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa'; 
 import { HashLink } from 'react-router-hash-link';
-
+import { Link } from 'react-router-dom';
 function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -16,9 +16,9 @@ function NavBar() {
     <nav className="bg-background z-30 p-5 sticky top-0 shadow-xl">
       <div className=" mx-auto flex justify-between items-center">
         
-        <HashLink to="/#hero" className="bg-gradient-to-r from-primary to-accent text-transparent bg-clip-text text-subtitle font-bold hover:text-text transition duration-300 z-50">
+        <a href="/" className="bg-gradient-to-r from-primary to-accent text-transparent bg-clip-text text-subtitle font-bold hover:text-text transition duration-300 z-50">
           Sayuri Cerna
-        </HashLink>
+        </a>
         
         <div className="hidden md:flex justify-center space-x-8">
           {links.map(link => (
@@ -52,11 +52,65 @@ function NavBar() {
   );
 }
 
+// const NavLink = ({ to, label }) => {
+//     const isHashLink = to.startsWith('#');
+//     const classes = "text-text hover:bg-primary/30 hover:text-primary px-3 py-2 rounded-md text-md font-medium transition duration-300";
+//     if (isHashLink) {
+//         return (
+//             <a 
+//                 href={to} 
+//                 className={classes}
+//             >
+//                 {label}
+//             </a>
+//         );
+//     }
+//     return (
+//         <HashLink
+//             to={to}
+//             className={classes}
+//         >
+//             {label}
+//         </HashLink>
+//     );
+// };
+
+// const NavLinkMobile = ({ to, label, onClick }) => {
+//     const isAnchor = to.startsWith('#');
+//     const classes = "text-primary text-3xl font-extrabold hover:text-accent transition duration-300";
+
+//     if (isAnchor) {
+//         return (
+//             <a 
+//                 href={to} 
+//                 onClick={onClick}
+//                 className={classes}
+//             >
+//                 {label}
+//             </a>
+//         );
+//     }
+
+//     return (
+//         <HashLink 
+//             to={to} 
+//             onClick={onClick}
+//             className={classes}
+//         >
+//             {label}
+//         </HashLink>
+//     );
+// };     
 const NavLink = ({ to, label }) => {
-    const isHashLink = to.startsWith('#');
+    // Si el destino es la raíz "/" o un hash interno
+    const isSpecialLink = to === "/" || to.startsWith('#'); 
+    
     const classes = "text-text hover:bg-primary/30 hover:text-primary px-3 py-2 rounded-md text-md font-medium transition duration-300";
-    if (isHashLink) {
+    
+    // 💡 CAMBIO CLAVE: Usar <a> para "/" (Home) y para hashes directos (como '/#contacto')
+    if (isSpecialLink) {
         return (
+            // Usamos <a> para forzar la recarga del navegador
             <a 
                 href={to} 
                 className={classes}
@@ -65,6 +119,8 @@ const NavLink = ({ to, label }) => {
             </a>
         );
     }
+    
+    // Para cualquier otra ruta que deba ser manejada por React Router
     return (
         <HashLink
             to={to}
@@ -74,12 +130,14 @@ const NavLink = ({ to, label }) => {
         </HashLink>
     );
 };
-
 const NavLinkMobile = ({ to, label, onClick }) => {
-    const isAnchor = to.startsWith('#');
+    // Si el destino es la raíz "/" o un hash interno
+    const isSpecialLink = to === "/" || to.startsWith('#'); 
+    
     const classes = "text-primary text-3xl font-extrabold hover:text-accent transition duration-300";
 
-    if (isAnchor) {
+    // 💡 CAMBIO CLAVE: Usar <a> para "/" (Home) y para hashes directos
+    if (isSpecialLink) {
         return (
             <a 
                 href={to} 
@@ -91,6 +149,7 @@ const NavLinkMobile = ({ to, label, onClick }) => {
         );
     }
 
+    // Para cualquier otra ruta
     return (
         <HashLink 
             to={to} 
@@ -100,5 +159,5 @@ const NavLinkMobile = ({ to, label, onClick }) => {
             {label}
         </HashLink>
     );
-};     
+};
 export default NavBar;

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Projects from "../components/Projects";
-import { FaChevronDown } from "react-icons/fa";
+
 
 // const TECH_COLORS = {
 //   React: "text-[#61DAFB]",
@@ -166,7 +166,10 @@ import { FaChevronDown } from "react-icons/fa";
 // );
 function ProjectsPage() {
   return (
+    <>
     <Projects></Projects>
+    </>
+    
   );
 }
 

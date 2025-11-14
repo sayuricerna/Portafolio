@@ -16,23 +16,43 @@
     "detailsLink": "/projects/1",
     "demoLink": "https://youtu.be/H8DrvEq1F8A"
   },
+
    {
     "id": 2,
-    "title": "Blog Personal con CMS",
-    "description": "Sistema CMS con Laravel y MySQL.",
-    "fullDescription": "Gestor de contenido con permisos de usuario y panel administrativo.",
-    "image": "https://placehold.co/600x400/1e293b/fbcfe8?text=Blog+Preview",
+    "title": "E-commerce de Ropa",
+    "description": "Plataforma de e-commerce desarrollada con Laravel y MySQL.",
+    "fullDescription": "Este e-commerce de ropa está desarrollado con Laravel y MySQL, ofreciendo una plataforma completa para la gestión de productos, categorías, usuarios y pedidos. Incluye funcionalidades como carrito de compras, pasarela de pago y panel administrativo para facilitar la administración del sitio.",
+    "image": "/ecommerce1.png",
     "images": [
-      "/images/blog-admin.jpg",
-      "/images/blog-post.jpg",
-      "/images/blog-mobile.jpg"
+      "/ecommerce1.png",
+      "/ecommerce2.png",
+      "/ecommerce2.png",
+      "/ecommerce4.png",
+      "/ecommerce5.png",
+      "/ecommerce6.png"
     ],
-    "tech": ["PHP", "Laravel", "MySQL", "JavaScript"],
+    "tech": ["PHP", "Laravel", "MySQL", "JavaScript","Html","CSS", "bootstrap"],
     "detailsLink": "/projects/{id}",
-    "demoLink": "https://demo.blogcms.com"
+    "demoLink": "https://youtu.be/jz_JpYpD9_I"
   },
   {
     "id": 3,
+    "title": "calculadora de sistema de ecuaciones, ecuaciones cuadráticas e integrales basicas",
+    "description": "Calculadora desarrollada en Java con NetBeans.",
+    "fullDescription": "Calculadora capaz de resolver sistemas de ecuaciones lineales, ecuaciones cuadráticas e integrales básicas, desarrollada en Java utilizando el entorno de desarrollo NetBeans. La aplicación cuenta con una interfaz gráfica intuitiva que facilita la entrada de datos y la visualización de resultados.",
+    "image": "/calculator1.png",
+    "images": [
+      "/calculator1.png",
+      "/calculator2.png",
+      "/calculator3.png",
+      "/calculator4.png"
+    ],
+    "tech": ["Java", "NetBeans"],
+    "detailsLink": "/projects/{id}",
+    "demoLink": "https://youtu.be/eKWMqkZI6Bw"
+  },
+  {
+    "id": 4,
     "title": "Blog Personal con CMS",
     "description": "Sistema CMS con Laravel y MySQL.",
     "fullDescription": "Gestor de contenido con permisos de usuario y panel administrativo.",
@@ -43,7 +63,37 @@
       "/images/blog-mobile.jpg"
     ],
     "tech": ["PHP", "Laravel", "MySQL", "JavaScript"],
-    "detailsLink": "/projects/2",
+    "detailsLink": "/projects/3",
+    "demoLink": "https://demo.blogcms.com"
+  },
+  {
+    "id": 5,
+    "title": "Blog Personal con CMS",
+    "description": "Sistema CMS con Laravel y MySQL.",
+    "fullDescription": "Gestor de contenido con permisos de usuario y panel administrativo.",
+    "image": "https://placehold.co/600x400/1e293b/fbcfe8?text=Blog+Preview",
+    "images": [
+      "/images/blog-admin.jpg",
+      "/images/blog-post.jpg",
+      "/images/blog-mobile.jpg"
+    ],
+    "tech": ["PHP", "Laravel", "MySQL", "JavaScript"],
+    "detailsLink": "/projects/4",
+    "demoLink": "https://demo.blogcms.com"
+  },
+  {
+    "id": 6,
+    "title": "Blog Personal con CMS",
+    "description": "Sistema CMS con Laravel y MySQL.",
+    "fullDescription": "Gestor de contenido con permisos de usuario y panel administrativo.",
+    "image": "https://placehold.co/600x400/1e293b/fbcfe8?text=Blog+Preview",
+    "images": [
+      "/images/blog-admin.jpg",
+      "/images/blog-post.jpg",
+      "/images/blog-mobile.jpg"
+    ],
+    "tech": ["PHP", "Laravel", "MySQL", "JavaScript"],
+    "detailsLink": "/projects/5",
     "demoLink": "https://demo.blogcms.com"
   }
 ]
